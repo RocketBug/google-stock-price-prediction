@@ -1,3 +1,4 @@
+ep = 200
 # Recurrent Neural Network
 #Data Preprocessing
 # Importing the libraries
@@ -85,7 +86,7 @@ regressor.add(Dense(units = 1))
 regressor.compile(optimizer = 'adam', loss = 'mean_squared_error')
 # Fitting the RNN to the Training set
 #regressor.fit(X_train, y_train, epochs = 100, batch_size = 32)
-regressor.fit(X_train, y_train, epochs = 25, batch_size = 32)
+regressor.fit(X_train, y_train, epochs = ep, batch_size = 32)
 # every 32 stock prices back prop is going to happn
 '''
 Epoch 1/10
@@ -128,7 +129,7 @@ regressor.add(Dense(units = 1))
 regressor.compile(optimizer = 'adam', loss = 'mean_squared_error')
 # Fitting the RNN to the Training set
 #regressor.fit(X_train, y_train, epochs = 100, batch_size = 32)
-regressor.fit(X_train, y_train, epochs = 25, batch_size = 32)
+regressor.fit(X_train, y_train, epochs = ep, batch_size = 32)
 '''
 Epoch 1/10
 1198/1198 [==============================] - 12s - loss: 0.0441
@@ -170,7 +171,7 @@ regressor.add(Dense(units = 1))
 regressor.compile(optimizer = 'adam', loss = 'mean_squared_error')
 # Fitting the RNN to the Training set
 #regressor.fit(X_train, y_train, epochs = 100, batch_size = 32)
-regressor.fit(X_train, y_train, epochs = 25, batch_size = 32)
+regressor.fit(X_train, y_train, epochs = ep, batch_size = 32)
 '''
 Epoch 1/10
 1198/1198 [==============================] - 16s - loss: 0.0501
