@@ -124,8 +124,7 @@ Epoch 9/10
 Epoch 10/10
 1198/1198 [==============================] - 5s - loss: 0.0036
 '''
-
-dataset_test = pd.read_csv('Google_Stock_Price_Test.csv')
+dataset_test = pd.read_csv('/content/stockPrice/Google_Stock_Price_Test.csv')
 real_stock_price = dataset_test.iloc[:, 1:2].values
 # Getting the predicted stock price of 2017
 dataset_total = pd.concat((dataset_train['Open'], dataset_test['Open']), axis = 0)
@@ -141,6 +140,16 @@ X_test = np.reshape(X_test, (X_test.shape[0], X_test.shape[1], 1))
 
 predicted_stock_price = regressor.predict(X_test)
 predicted_stock_price = sc.inverse_transform(predicted_stock_price)
+
+from math import sqrt
+from sklearn.metrics import mean_squared_error
+
+inv_yhat = predicted_stock_price
+inv_y = real_stock_price
+
+rmse = sqrt(mean_squared_error(inv_y, inv_yhat))
+print('Test RMSE: %.3f' % rmse)
+
 # Visualising the results
 plt.plot(real_stock_price, color = 'red', label = 'Real Google Stock Price')
 plt.plot(predicted_stock_price, color = 'blue', label = 'Predicted Google Stock Price')
